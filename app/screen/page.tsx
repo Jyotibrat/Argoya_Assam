@@ -103,3 +103,43 @@ function calculateRisk(data: SymptomForm) {
   else if (score >= 30) risk = "Medium";
   return { score, risk };
 }
+
+
+export default function ScreenPage(){
+    const router = useRouter()
+    const[form,setForm]= useState<SymptomForm>({
+            fatigue: 1,
+            breathlessness: false,
+             dizziness: false,
+             pica: false,
+            fastHeartbeat: false,
+            pallor: "none",
+            ageGroup: "adult",
+             diet: "sometimes",
+             heavyBleeding: false,
+            recentBloodLoss: false,
+    })
+    const submitHandler = () => {
+    const result = calculateRisk(form);
+    router.push(`/result?score=${result.score}&risk=${result.risk}`);
+  };
+  return (
+    <main className="min-h-screen bg-slate-50 py-12 px-4">
+        <div className="max-w-2xl mx-auto space-y-8">
+            <div className="text-center space-y-3">
+                <div className="inline-flex items-center gap-5 mt-10 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-100">
+                    <Sparkles className="w-4 h-4 text-rose-500 " />
+                    <span className="text-xs font-bold uppercase tracking-wider  text-slate-600">Health Assessment</span>
+                </div>
+                     <h1 className="text-4xl font-black text-slate-900">Endemic Screening</h1>
+                     <p className="text-slate-500">Provide accurate details for a better risk analysis.</p>
+            </div>
+          
+        </div>
+
+    </main>
+  )
+}
+
+
+  
