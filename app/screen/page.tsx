@@ -135,11 +135,110 @@ export default function ScreenPage(){
                      <p className="text-slate-500">Provide accurate details for a better risk analysis.</p>
             </div>
           
+            <QuestionCard title="Age Group" assamese="বয়স গোট" icon={User}>
+            <div className="grid grid-cols-2 gap-3">
+              {["child", "teen", "adult", "senior"].map((age) => (
+                <button
+                  key={age}
+                  onClick={() => setForm({...form, ageGroup: age as any})}
+                  className={`py-3 rounded-xl border-2 capitalize font-medium transition-all ${
+                    form.ageGroup === age ? "border-rose-500 bg-rose-50 text-rose-700" : "border-slate-100 bg-white text-slate-600"
+                  }`}
+                >
+                  {age}
+                </button>
+              ))}
+            </div>
+          </QuestionCard>
+
+          {/* 2. FATIGUE SLIDER */}
+          <QuestionCard title="How tired do you feel?" assamese="ভাগৰ কেনেকুৱা লাগে?" icon={Activity}>
+            <input 
+              type="range" min="1" max="5" value={form.fatigue} 
+              onChange={(e) => setForm({...form, fatigue: parseInt(e.target.value)})}
+              className="w-full h-2 bg-rose-100 rounded-lg appearance-none cursor-pointer accent-rose-600"
+            />
+            <div className="flex justify-between text-xs font-bold text-slate-400 mt-2">
+              <span>FRESH</span>
+              <span className="text-rose-600">LEVEL {form.fatigue}</span>
+              <span>EXHAUSTED</span>
+            </div>
+          </QuestionCard>
+
+          {/* 3. BREATHLESSNESS */}
+          <QuestionCard title="Breathless during activity?" assamese="উশাহ চুটি হয় নেকি?" icon={Wind}>
+            <YesNoToggle value={form.breathlessness} onChange={(val) => setForm({...form, breathlessness: val})} />
+          </QuestionCard>
+
+          {/* 4. DIZZINESS */}
+          <QuestionCard title="Dizzy or light-headed?" assamese="মূৰ ঘূৰায় নেকি?" icon={Brain}>
+            <YesNoToggle value={form.dizziness} onChange={(val) => setForm({...form, dizziness: val})} />
+          </QuestionCard>
+
+          {/* 5. PICA */}
+          <QuestionCard title="Crave ice, chalk, or mud?" assamese="মাটি বা চক খাবৰ মন যায় নেকি?" icon={Cookie}>
+            <YesNoToggle value={form.pica} onChange={(val) => setForm({...form, pica: val})} />
+          </QuestionCard>
+
+          {/* 6. HEARTBEAT */}
+          <QuestionCard title="Fast heartbeat?" assamese="হৃদস্পন্দন দ্ৰুত নেকি?" icon={Heart}>
+            <YesNoToggle value={form.fastHeartbeat} onChange={(val) => setForm({...form, fastHeartbeat: val})} />
+          </QuestionCard>
+
+          {/* 7. PALLOR (EYE/LIPS) */}
+          <QuestionCard title="Color of Nails/Lips" assamese="নখ বা ওঁঠৰ ৰং" icon={Eye}>
+            <div className="flex gap-3">
+              {["pink", "pale", "very pale"].map((p) => (
+                <button
+                  key={p}
+                  onClick={() => setForm({...form, pallor: p as any})}
+                  className={`flex-1 py-3 rounded-xl border-2 capitalize font-medium transition-all ${
+                    form.pallor === p ? "border-rose-500 bg-rose-50 text-rose-700" : "border-slate-100 bg-white text-slate-600"
+                  }`}
+                >
+                  {p === 'none' ? 'Normal' : p}
+                </button>
+              ))}
+            </div>
+          </QuestionCard>
+
+          {/* 8. DIET */}
+          <QuestionCard title="Iron-rich food frequency" assamese="আইৰনযুক্ত খাদ্য খোৱাৰ সঘনতা" icon={Utensils}>
+            <div className="grid grid-cols-2 gap-3">
+              {["rarely", "sometimes", "often", "daily"].map((d) => (
+                <button
+                  key={d}
+                  onClick={() => setForm({...form, diet: d as any})}
+                  className={`py-3 rounded-xl border-2 capitalize font-medium transition-all ${
+                    form.diet === d ? "border-rose-500 bg-rose-50 text-rose-700" : "border-slate-100 bg-white text-slate-600"
+                  }`}
+                >
+                  {d}
+                </button>
+              ))}
+            </div>
+          </QuestionCard>
+
+          {/* 9. HEAVY BLEEDING */}
+          <QuestionCard title="Heavy menstrual bleeding?" assamese="অত্যধিক ঋতুস্ৰাৱ হয় নেকি?" icon={Droplets}>
+            <YesNoToggle value={form.heavyBleeding} onChange={(val) => setForm({...form, heavyBleeding: val})} />
+          </QuestionCard>
+
+          {/* 10. BLOOD LOSS */}
+          <QuestionCard title="Recent injury or blood loss?" assamese="শেহতীয়া আঘাত বা তেজ ওলোৱা?" icon={Syringe}>
+            <YesNoToggle value={form.recentBloodLoss} onChange={(val) => setForm({...form, recentBloodLoss: val})} />
+          </QuestionCard>
+
         </div>
 
+        <button
+          onClick={submitHandler}
+          className="w-full bg-slate-900 text-white py-5 rounded-2xl font-black text-xl hover:bg-rose-600 transition-all shadow-xl active:scale-95"
+        >
+          GET RESULTS →
+        </button>
+      </div>
     </main>
-  )
+  );
 }
 
-
-  
