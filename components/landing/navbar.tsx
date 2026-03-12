@@ -31,7 +31,7 @@ export default function Header() {
       items: [
         {
           title: "Find Hospitals",
-          href: "hospitals",
+          href: "/hospitals",
         },
         {
           title: "AI Health Assistant",
