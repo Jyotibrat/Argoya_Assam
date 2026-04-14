@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { Inter, Manrope } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -31,6 +31,7 @@ export default function RootLayout({
         className={`${manrope.variable} ${inter.variable} antialiased`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );

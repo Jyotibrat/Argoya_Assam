@@ -16,6 +16,10 @@ interface OSMHospital {
     }
 }
 
+interface OverpassResponse {
+  elements: OSMHospital[];
+}
+
 export async function getPincodeCoordinate(
     pincode:string
 ):Promise<Coordinate>{
@@ -65,8 +69,8 @@ export async  function getHospotialsNearby(
    if (!response.ok) {
     throw new Error("Failed to fetch hospitals");
   }
-  const data = await response.json();
-  return data.elements.filter((el: any) => el.tags?.name) as OSMHospital[];
+  const data = await response.json() as OverpassResponse;
+  return data.elements.filter((el) => el.tags?.name);
 }
 
 

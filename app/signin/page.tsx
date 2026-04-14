@@ -29,7 +29,7 @@ export default function SignInPage() {
         e.preventDefault();
         setLoading(true);
         try {
-            const { data, error } = await authClient.signIn.email({
+            const { error } = await authClient.signIn.email({
                 email,
                 password,
                 callbackURL: "/dashboard"
@@ -41,7 +41,7 @@ export default function SignInPage() {
                 toast.success("Signed in successfully!");
                 router.push("/hospitals");
             }
-        } catch (err) {
+        } catch {
             toast.error("An unexpected error occurred");
         } finally {
             setLoading(false);
@@ -51,11 +51,15 @@ export default function SignInPage() {
     const handleSocialSignIn = async (provider: "google" | "github") => {
         setLoading(true);
         try {
-            await authClient.signIn.social({
+            const { error } = await authClient.signIn.social({
                 provider,
                 callbackURL: "/hospitals"
             });
-        } catch (err) {
+            if (error) {
+                toast.error(error.message || `Failed to sign in with ${provider}`);
+                setLoading(false);
+            }
+        } catch {
             toast.error(`Failed to sign in with ${provider}`);
             setLoading(false);
         }

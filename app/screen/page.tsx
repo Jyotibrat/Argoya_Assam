@@ -1,6 +1,7 @@
 "use client"
-import { useState,useEffect } from "react"
+import { useState } from "react"
 import {
+  type LucideIcon,
   Activity,
   Wind,
   Brain,
@@ -14,6 +15,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import type { ReactNode } from "react";
 
 
 
@@ -30,10 +32,14 @@ type SymptomForm = {
     recentBloodLoss:boolean;
 }
 
+type QuestionCardProps = {
+  title: string;
+  assamese?: string;
+  icon: LucideIcon;
+  children: ReactNode;
+}
 
-
-
-function QuestionCard({ title, assamese, icon: Icon, children }: any) {
+function QuestionCard({ title, assamese, icon: Icon, children }: QuestionCardProps) {
   return (
     <div className="group rounded-2xl border border-slate-200 bg-white p-6 space-y-4 shadow-sm hover:shadow-md transition-all">
       <div className="flex items-start gap-3">
@@ -137,10 +143,10 @@ export default function ScreenPage(){
           
             <QuestionCard title="Age Group" assamese="বয়স গোট" icon={User}>
             <div className="grid grid-cols-2 gap-3">
-              {["child", "teen", "adult", "senior"].map((age) => (
+              {(["child", "teen", "adult", "senior"] satisfies SymptomForm["ageGroup"][]).map((age) => (
                 <button
                   key={age}
-                  onClick={() => setForm({...form, ageGroup: age as any})}
+                  onClick={() => setForm({...form, ageGroup: age})}
                   className={`py-3 rounded-xl border-2 capitalize font-medium transition-all ${
                     form.ageGroup === age ? "border-rose-500 bg-rose-50 text-rose-700" : "border-slate-100 bg-white text-slate-600"
                   }`}
@@ -188,10 +194,10 @@ export default function ScreenPage(){
           {/* 7. PALLOR (EYE/LIPS) */}
           <QuestionCard title="Color of Nails/Lips" assamese="নখ বা ওঁঠৰ ৰং" icon={Eye}>
             <div className="flex gap-3">
-              {["pink", "pale", "very pale"].map((p) => (
+              {(["none", "mild", "severe"] satisfies SymptomForm["pallor"][]).map((p) => (
                 <button
                   key={p}
-                  onClick={() => setForm({...form, pallor: p as any})}
+                  onClick={() => setForm({...form, pallor: p})}
                   className={`flex-1 py-3 rounded-xl border-2 capitalize font-medium transition-all ${
                     form.pallor === p ? "border-rose-500 bg-rose-50 text-rose-700" : "border-slate-100 bg-white text-slate-600"
                   }`}
@@ -205,10 +211,10 @@ export default function ScreenPage(){
           {/* 8. DIET */}
           <QuestionCard title="Iron-rich food frequency" assamese="আইৰনযুক্ত খাদ্য খোৱাৰ সঘনতা" icon={Utensils}>
             <div className="grid grid-cols-2 gap-3">
-              {["rarely", "sometimes", "often", "daily"].map((d) => (
+              {(["rarely", "sometimes", "often", "daily"] satisfies SymptomForm["diet"][]).map((d) => (
                 <button
                   key={d}
-                  onClick={() => setForm({...form, diet: d as any})}
+                  onClick={() => setForm({...form, diet: d})}
                   className={`py-3 rounded-xl border-2 capitalize font-medium transition-all ${
                     form.diet === d ? "border-rose-500 bg-rose-50 text-rose-700" : "border-slate-100 bg-white text-slate-600"
                   }`}
@@ -228,17 +234,13 @@ export default function ScreenPage(){
           <QuestionCard title="Recent injury or blood loss?" assamese="শেহতীয়া আঘাত বা তেজ ওলোৱা?" icon={Syringe}>
             <YesNoToggle value={form.recentBloodLoss} onChange={(val) => setForm({...form, recentBloodLoss: val})} />
           </QuestionCard>
-
-        </div>
-
         <button
           onClick={submitHandler}
           className="w-full bg-slate-900 text-white py-5 rounded-2xl font-black text-xl hover:bg-rose-600 transition-all shadow-xl active:scale-95"
         >
           GET RESULTS →
         </button>
-      </div>
-    </main>
+     </div>
+     </main>
   );
 }
-

@@ -1,9 +1,5 @@
 'use client'
 import { signupSchema } from "@/lib/validators";
-import { NextResponse } from "next/server";
-import { hashPassword } from "@/lib/password";
-import { generateVerificationToken } from "@/lib/token";
-import { sendVerificationEmail } from "@/lib/email";
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -15,7 +11,6 @@ import { Label } from "@/components/ui/label";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "sonner";
 import Link from "next/link";
-import z from "zod";
 
 export default function SignUpPage() {
     const router = useRouter();
@@ -39,7 +34,7 @@ export default function SignUpPage() {
         e.preventDefault();
         const result = signupSchema.safeParse({name,email,password})
         if(!result.success){
-            return toast.error(result.error.errors[0].message)
+            return toast.error(result.error.issues[0]?.message || "Invalid signup details")
         }
         setLoading(true);
         console.log("Attempting signup for:", email);
@@ -71,11 +66,15 @@ export default function SignUpPage() {
     const handleSocialSignUp = async (provider: "google" | "github") => {
         setLoading(true);
         try {
-            await authClient.signIn.social({
+            const { error } = await authClient.signIn.social({
                 provider,
                 callbackURL: "/hospitals"
             });
-        } catch (err) {
+            if (error) {
+                toast.error(error.message || `Failed to sign up with ${provider}`);
+                setLoading(false);
+            }
+        } catch {
             toast.error(`Failed to sign up with ${provider}`);
             setLoading(false);
         }
