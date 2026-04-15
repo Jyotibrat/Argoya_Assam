@@ -1,5 +1,6 @@
 "use client";
 
+import { ModeToggle } from "./mode-toggle";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -12,10 +13,9 @@ import {
 import { Heart, Menu, MoveRight, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
-// import { ThemeToggle } from "@/components/theme-toggle";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
- 
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
@@ -57,7 +57,7 @@ export default function Header() {
         },
         {
           title: "FAQs",
-              href: "/#faq",
+          href: "/#faq",
         },
         {
           title: "Patient Education",
@@ -68,23 +68,24 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b bg-background/95   backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4">
         <nav className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center space-x-1 -gap-10">
+          <Link href="/" className="flex items-center space-x-1">
             <div className="relative w-12 h-12">
               <Image
                 src="/logo.png"
                 alt="Arogya Assam Logo"
                 fill
-                className="w-12 h-12"
+                className="object-contain"
                 priority
                 unoptimized
               />
             </div>
-            <span className="text-xl font-semibold tracking-tight">Arogya Assam </span>
+            <span className="text-xl font-semibold tracking-tight">Arogya Assam</span>
           </Link>
 
+          {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-6">
             <NavigationMenu>
               <NavigationMenuList>
@@ -92,9 +93,7 @@ export default function Header() {
                   <NavigationMenuItem key={item.title}>
                     {item.items ? (
                       <>
-                        <NavigationMenuTrigger>
-                          {item.title}
-                        </NavigationMenuTrigger>
+                        <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
                         <NavigationMenuContent>
                           <ul className="grid w-100 gap-3 p-4 md:w-125 md:grid-cols-2">
                             {item.items.map((subItem) => (
@@ -126,21 +125,23 @@ export default function Header() {
             </NavigationMenu>
 
             <div className="flex items-center space-x-4">
-              {/* <ThemeToggle /> */}
+              <ModeToggle /> {/* Desktop Theme Toggle */}
               <Button variant="ghost" onClick={() => router.push("/signup")}>
                 Create Account
               </Button>
-              <Button className="shadow-[0px_0px_2px_1px_rgba(255,255,255,0.2)_inset]
-              text-shadow-sm text-shadow-white/10 ring ring-white/20 cursor-pointer"
-              onClick={() => router.push("/signin")}>
+              <Button 
+                className="shadow-[0px_0px_2px_1px_rgba(255,255,255,0.2)_inset] text-shadow-sm text-shadow-white/10 ring ring-white/20 cursor-pointer"
+                onClick={() => router.push("/signin")}
+              >
                 Patient Login 
                 <MoveRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </div>
 
+          {/* Mobile Actions */}
           <div className="md:hidden flex items-center space-x-4">
-            {/* <ThemeToggle /> */}
+            <ModeToggle /> {/* Mobile Theme Toggle */}
             <button onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? (
                 <X className="h-6 w-6" />
@@ -151,8 +152,9 @@ export default function Header() {
           </div>
         </nav>
 
+        {/* Mobile Menu Content */}
         {isOpen && (
-          <div className="md:hidden">
+          <div className="md:hidden border-t py-4">
             <div className="space-y-4 px-4 pb-4 pt-2">
               {navigationItems.map((item) => (
                 <div key={item.title} className="space-y-2">
