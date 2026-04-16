@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next"; // <-- Viewport add kiya hai yahan
+import type { Metadata, Viewport } from "next";
 import { Inter, Manrope } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -16,26 +16,38 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-// PWA ke liye Viewport settings (Next.js 14+ me zaroori hai)
+/**
+ * Viewport configuration for the application.
+ * Configures theme color and scaling settings.
+ * Note: maximumScale is omitted to ensure accessibility compliance (pinch-to-zoom).
+ */
 export const viewport: Viewport = {
   themeColor: "#0f172a",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
 };
 
-// Tumhara Metadata + PWA Manifest config
+/**
+ * Metadata configuration for SEO and PWA support.
+ * Includes manifest linking and Apple Web App capabilities for iOS devices.
+ */
 export const metadata: Metadata = {
   title: "Arogya Assam",
   description: "Screening Endemic Diseases Without Lab Tests",
-  manifest: "/manifest.json", // <-- PWA connection
-  appleWebApp: {              // <-- iPhones (iOS) support ke liye
+  manifest: "/manifest.json",
+  appleWebApp: {
     capable: true,
     statusBarStyle: "default",
     title: "Arogya Assam",
   },
 };
 
+/**
+ * Root Layout component that wraps the entire application.
+ * @param {Object} props - Component props.
+ * @param {React.ReactNode} props.children - The child components to be rendered.
+ * @returns {JSX.Element} The rendered root layout.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
