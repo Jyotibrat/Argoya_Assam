@@ -139,9 +139,9 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { label: "Patient Portal", href: "/signin" },
-                { label: "Find Hospitals", href: "/soon" },
-                { label: "Health Articles", href: "/soon" },
-                { label: "Emergency Services", href: "/soon" },
+                { label: "Find Hospitals", href: "/hospitals" },
+                { label: "Health Articles", href: "/chat?name=Health Articles" },
+                { label: "Emergency Services", href: "/#contact" },
               ].map((item) => (
                 <li key={item.label}>
                   <Link
@@ -155,6 +155,7 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+
 
           {/* Contact */}
           <div className="space-y-6">
@@ -195,18 +196,19 @@ export default function Footer() {
             </p>
             <div className="flex flex-wrap justify-center gap-6">
               <Link
-                href="/privacy"
+                href="/soon"
                 className="text-sm text-slate-400 hover:text-primary-400 transition-colors"
               >
                 Privacy Policy
               </Link>
               <Link
-                href="/terms"
+                href="/soon"
                 className="text-sm text-slate-400 hover:text-primary-400 transition-colors"
               >
                 Terms of Service
               </Link>
             </div>
+
           </div>
         </div>
       </div>

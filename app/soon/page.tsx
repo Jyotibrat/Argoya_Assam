@@ -1,34 +1,42 @@
 import React from "react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Mail } from "lucide-react";
+import { Button } from "@/components/shared/button";
+import { Container, Section, H1, P } from "@/components/shared/design-system";
+import { Mail, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
-export default function ComingSoon(){
-    return(
-        <div className="w-full min-h-screen flex items-center justify-center bg-linear-to-b from-background to-brackground/80">
-            <div className="container mx-auto px-4">
-                <div className="flex flex-col items-center text-center gap-8">
-                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-                        Coming Soon !
-                    </h1>
-                    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
-                        Stay tuned for the launch, We are Working Hard 
-                    </p>
-
-                    <div className="w-full max-w-md">
-                        <form className="flex flex-col sm:flex-row gap-2">
-                            <Input 
-                            type = "email"
-                            placeholder="Enter Your Email"
-                            className="flex-1"/>
-                            <Button type="submit" className="gap-2">
-                                <Mail className="w-4 h-3"/>
-                                Notify Me 
-                            </Button>
-                        </form>
+export default function ComingSoon() {
+    return (
+        <Section className="min-h-[calc(100vh-4rem)] flex items-center bg-slate-50/50">
+            <Container>
+                <div className="flex flex-col items-center text-center gap-10 max-w-3xl mx-auto">
+                    <div className="space-y-4">
+                        <H1 className="text-5xl md:text-7xl">Coming Soon</H1>
+                        <P className="text-xl md:text-2xl text-muted-foreground">
+                            We&apos;re building something amazing. Stay tuned for the official launch!
+                        </P>
                     </div>
+
+                    <div className="w-full max-w-md p-2 bg-white rounded-2xl shadow-xl border border-slate-100 flex flex-col sm:flex-row gap-2">
+                        <Input
+                            type="email"
+                            placeholder="Enter your email for updates"
+                            className="flex-1 border-none bg-transparent h-12 text-lg focus-visible:ring-0"
+                        />
+                        <Button premium className="h-12 px-8 rounded-xl text-lg font-semibold gap-2">
+                            <Mail className="w-5 h-5" />
+                            Notify Me
+                        </Button>
+                    </div>
+
+                    <Link href="/">
+                        <Button variant="ghost" className="gap-2 text-muted-foreground hover:text-primary transition-colors">
+                            <ArrowLeft className="w-4 h-4" />
+                            Back to Home
+                        </Button>
+                    </Link>
                 </div>
-            </div>
-        </div>
-    )
+            </Container>
+        </Section>
+    );
 }
