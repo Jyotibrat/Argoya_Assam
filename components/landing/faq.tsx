@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { ChevronDown, HelpCircle, HeartPulse, ShieldCheck, Users } from "lucide-react";
 
 const faqs = [
   {
@@ -60,6 +60,43 @@ export default function FAQ() {
       </div>
 
       <div className="relative mx-auto max-w-6xl">
+        <div className="mb-14 grid gap-4 md:grid-cols-3">
+          <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/60 p-6 shadow-[0_10px_40px_rgba(0,0,0,0.06)] backdrop-blur-xl">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-100 dark:bg-rose-900/20">
+              <HeartPulse className="h-6 w-6 text-rose-500" />
+            </div>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+              Health Awareness
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+              Learn about symptoms, prevention, nutrition, and early warning signs of anemia.
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/60 p-6 shadow-[0_10px_40px_rgba(0,0,0,0.06)] backdrop-blur-xl">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 dark:bg-emerald-900/20">
+              <ShieldCheck className="h-6 w-6 text-emerald-500" />
+            </div>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+              Trusted Guidance
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+              Understand when to seek medical help and why early screening matters.
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/60 p-6 shadow-[0_10px_40px_rgba(0,0,0,0.06)] backdrop-blur-xl">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-100 dark:bg-sky-900/20">
+              <Users className="h-6 w-6 text-sky-500" />
+            </div>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+              Built for Everyone
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+              Helpful for patients, ASHA workers, parents, teachers, and first-time users.
+            </p>
+          </div>
+        </div>
         <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] items-start">
           <div className="sticky top-24 space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary-200 dark:border-primary-800 bg-primary-100 dark:bg-primary-900/20 px-4 py-1.5">
@@ -73,6 +110,18 @@ export default function FAQ() {
               <h2 className="text-4xl font-bold leading-tight text-slate-900 dark:text-white sm:text-5xl">
                 Frequently Asked Questions
               </h2>
+
+              <div className="flex flex-wrap gap-3 pt-2">
+                <span className="rounded-full bg-primary-100 dark:bg-primary-900/30 px-3 py-1 text-xs font-semibold text-primary-700 dark:text-primary-300">
+                  Symptoms
+                </span>
+                <span className="rounded-full bg-emerald-100 dark:bg-emerald-900/30 px-3 py-1 text-xs font-semibold text-emerald-700 dark:text-emerald-300">
+                  Prevention
+                </span>
+                <span className="rounded-full bg-amber-100 dark:bg-amber-900/30 px-3 py-1 text-xs font-semibold text-amber-700 dark:text-amber-300">
+                  Nutrition
+                </span>
+              </div>
 
               <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
                 Quick answers to common questions about anemia, symptoms, prevention, and how the screening platform works.
@@ -102,8 +151,7 @@ export default function FAQ() {
 
               return (
                 <div
-                  key={item.question}
-                  className={`group overflow-hidden rounded-3xl border transition-all duration-300 ${
+                  key={item.question}                  className={`group overflow-hidden rounded-3xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] ${
                     isOpen
                       ? "border-primary-300 dark:border-primary-700 bg-white dark:bg-slate-900 shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
                       : "border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/50 hover:border-primary-200 dark:hover:border-primary-800"
@@ -153,3 +201,4 @@ export default function FAQ() {
     </section>
   );
 }
+
