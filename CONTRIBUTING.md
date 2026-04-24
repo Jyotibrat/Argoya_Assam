@@ -3,19 +3,15 @@ This version matches the repo’s **design language, badges, sections, and visua
 
 ---
 
-# 🔥 INSANE-LEVEL `CONTRIBUTING.md` (MATCHES README STYLE)
+## 🤝 Contributing to Arogya Assam
+Help us build a real-world healthcare solution for rural India 🇮🇳
 
-````md id="ultra99"
 <div align="center">
 
-# 🤝 Contributing to Arogya Assam
-
-### Help us build a real-world healthcare solution for rural India 🇮🇳
-
-[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen?style=for-the-badge)]()
-[![Good First Issues](https://img.shields.io/badge/Good_First_Issues-Available-blue?style=for-the-badge)]()
-[![NSoC 2026](https://img.shields.io/badge/NSoC-2026-orange?style=for-the-badge)]()
-
+<div align="center">
+[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen?style=for-the-badge)](https://github.com/NSoC-2026/Argoya_Assam/issues)
+[![Good First Issues](https://img.shields.io/badge/Good_First_Issues-Available-blue?style=for-the-badge)](https://github.com/NSoC-2026/Argoya_Assam/labels/good%20first%20issue)
+[![NSoC 2026](https://img.shields.io/badge/NSoC-2026-orange?style=for-the-badge)](https://www.nationalsocietyofcoders.in/)
 </div>
 
 ---
@@ -66,8 +62,8 @@ By contributing, you:
 ### 1️⃣ Fork & Clone
 
 ```bash
-git clone https://github.com/<your-username>/arogya-assam.git
-cd arogya-assam
+git clone https://github.com/<your-username>/Argoya_Assam.git
+cd Argoya_Assam
 ````
 
 ---
