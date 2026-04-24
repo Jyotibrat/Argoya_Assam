@@ -22,7 +22,7 @@
 <!-- Replace the src with your actual screenshot path, e.g.: -->
 <!-- <img src="public/screenshots/hero.png" alt="Arogya Assam Hero" width="800"/> -->
 
-<!-- </div> -->
+</div>
 
 ---
 
