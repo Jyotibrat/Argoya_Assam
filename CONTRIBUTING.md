@@ -64,7 +64,7 @@ By contributing, you:
 ```bash
 git clone https://github.com/<your-username>/Argoya_Assam.git
 cd Argoya_Assam
-````
+```
 
 ---
 
