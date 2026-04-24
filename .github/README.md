@@ -28,22 +28,22 @@
 
 ## Table of Contents
 
-- [About The Project](#-about-the-project)
-- [The Problem](#-the-problem)
-- [Screenshots](#-screenshots)
-- [Architecture](#-architecture)
-- [Tech Stack](#-tech-stack)
+- [About The Project](https://github.com/YASHSHARMAOFFICIALLY/Argoya_Assam/tree/Bug-Resolve/main-README#about-the-project)
+- [The Problem](https://github.com/YASHSHARMAOFFICIALLY/Argoya_Assam/tree/Bug-Resolve/main-README#the-problem)
+- [Screenshots](https://github.com/YASHSHARMAOFFICIALLY/Argoya_Assam/tree/Bug-Resolve/main-README#screenshots)
+- [Architecture](https://github.com/YASHSHARMAOFFICIALLY/Argoya_Assam/tree/Bug-Resolve/main-README#architecture)
+- [Tech Stack](https://github.com/YASHSHARMAOFFICIALLY/Argoya_Assam/tree/Bug-Resolve/main-README#tech-stack)
 - [Features](#-features)
-- [Getting Started](#-getting-started)
-- [Environment Variables](#-environment-variables)
-- [Database Setup](#-database-setup)
-- [Project Structure](#-project-structure)
-- [API Reference](#-api-reference)
-- [Contributing](#-contributing)
-- [Feature Roadmap](#-feature-roadmap)
-- [License](#-license)
-- [Contact](#-contact)
-- [Acknowledgements](#-acknowledgements)
+- [Getting Started](https://github.com/YASHSHARMAOFFICIALLY/Argoya_Assam/tree/Bug-Resolve/main-README#features)
+- [Environment Variables](https://github.com/YASHSHARMAOFFICIALLY/Argoya_Assam/tree/Bug-Resolve/main-README#environment-variables)
+- [Database Setup](https://github.com/YASHSHARMAOFFICIALLY/Argoya_Assam/tree/Bug-Resolve/main-README#database-setup)
+- [Project Structure](https://github.com/YASHSHARMAOFFICIALLY/Argoya_Assam/tree/Bug-Resolve/main-README#project-structure)
+- [API Reference](https://github.com/YASHSHARMAOFFICIALLY/Argoya_Assam/tree/Bug-Resolve/main-README#api-reference)
+- [Contributing]()
+- [Feature Roadmap](https://github.com/YASHSHARMAOFFICIALLY/Argoya_Assam/tree/Bug-Resolve/main-README#feature-roadmap)
+- [License](LICENSE)
+- [Contact](https://github.com/YASHSHARMAOFFICIALLY/Argoya_Assam/tree/Bug-Resolve/main-README#contact)
+- [Acknowledgements](https://github.com/YASHSHARMAOFFICIALLY/Argoya_Assam/tree/Bug-Resolve/main-README#acknowledgements)
 
 ---
 
@@ -527,6 +527,10 @@ All auth routes are handled by Better Auth at `/api/auth/*`:
 
 ---
 
+## Contributing
+
+Read the [Contribution Guidelines](https://github.com/YASHSHARMAOFFICIALLY/Argoya_Assam?tab=contributing-ov-file) before contributing to the Project. Follow the below mentioned steps to contribute.
+
 ### How to Contribute
 
 1. **Fork** the repository
@@ -550,26 +554,26 @@ All auth routes are handled by Better Auth at `/api/auth/*`:
 
 ### Commit Convention
 
-[Click Here]() to follow the commit conventions while committing code to this Project.
+[Click Here](https://github.com/YASHSHARMAOFFICIALLY/Argoya_Assam/blob/Bug-Resolve/main-README/docs/COMMIT_CONVENTION.md) to follow the commit conventions while committing code to this Project.
 
 ### Code Guidelines
 
-[Click Here]() to read the Code Guidelines before contributing to the codebase.
+[Click Here](https://github.com/YASHSHARMAOFFICIALLY/Argoya_Assam/blob/Bug-Resolve/main-README/docs/CODE_GUIDELINES.md) to read the Code Guidelines before contributing to the codebase.
 
 ---
 
 ## Feature Roadmap
 
-[Click Here]() to see the features that contributors can work on.
+[Click Here](https://github.com/YASHSHARMAOFFICIALLY/Argoya_Assam/blob/Bug-Resolve/main-README/docs/FEATURE.md) to see the features that contributors can work on.
 
 ### Architecture Improvements
-- [ ] Add unit tests (Jest + React Testing Library)
-- [ ] Add E2E tests (Playwright)
-- [ ] Set up CI/CD pipeline (GitHub Actions)
-- [ ] Add rate limiting to API routes (Upstash Redis is ready)
-- [ ] Implement proper error boundaries
-- [ ] Add Sentry for error monitoring
-- [ ] Docker containerization
+- Add unit tests (Jest + React Testing Library)
+- Add E2E tests (Playwright)
+- Set up CI/CD pipeline (GitHub Actions)
+- Add rate limiting to API routes (Upstash Redis is ready)
+- Implement proper error boundaries
+- Add Sentry for error monitoring
+- Docker containerization
 
 ---
 
