@@ -12,9 +12,9 @@ function ChatContent() {
     const hospitalName = searchParams.get("name");
 
     return (
-        <Section className="min-h-[calc(100vh-4rem)] flex items-center bg-slate-50/50">
+        <Section className="min-h-[calc(100vh-4rem)] flex items-center bg-muted/30">
             <Container>
-                <div className="max-w-2xl mx-auto text-center space-y-8 p-12 bg-white rounded-3xl shadow-xl border border-slate-100">
+                <div className="max-w-2xl mx-auto text-center space-y-8 p-12 bg-card rounded-3xl shadow-xl border border-border">
                     <div className="relative mx-auto w-24 h-24">
                         <div className="absolute inset-0 bg-primary/10 rounded-full animate-ping" />
                         <div className="relative w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center">
@@ -23,7 +23,7 @@ function ChatContent() {
                     </div>
 
                     <div className="space-y-4">
-                        <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm font-medium gap-2">
+                        <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-muted text-muted-foreground text-sm font-medium gap-2">
                             <Hospital className="w-4 h-4" />
                             {hospitalName ? `Chat with ${hospitalName}` : "Hospital Chat"}
                         </div>

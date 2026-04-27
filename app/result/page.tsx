@@ -71,32 +71,32 @@ function normalizeRisk(value?: string | null) {
 	const RiskIcon = config.icon;
 
 	return (
-		<div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-red-50 via-rose-50 to-pink-50">
+		<div className="relative min-h-screen overflow-hidden bg-background">
 			{/* Animated background elements */}
 			<div className="absolute inset-0 overflow-hidden pointer-events-none">
-				<div className="absolute top-20 left-10 w-72 h-72 bg-red-300/20 rounded-full blur-3xl animate-pulse" />
-				<div className="absolute bottom-20 right-10 w-96 h-96 bg-rose-300/20 rounded-full blur-3xl animate-pulse delay-1000" />
+				<div className="absolute top-20 left-10 w-72 h-72 bg-red-300/10 rounded-full blur-3xl animate-pulse" />
+				<div className="absolute bottom-20 right-10 w-96 h-96 bg-rose-300/10 rounded-full blur-3xl animate-pulse delay-1000" />
 			</div>
 
 			<div className="relative z-10 mx-auto flex min-h-screen w-full max-w-3xl flex-col justify-center gap-8 px-6 py-16">
 				{/* Header */}
 				<div className="text-center space-y-3">
-					<div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm shadow-md mb-4">
+					<div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card backdrop-blur-sm shadow-md mb-4 border border-border">
 						<Sparkles className="w-5 h-5 text-red-600" />
-						<span className="text-sm font-semibold text-slate-700">
+						<span className="text-sm font-semibold text-foreground">
 							Screening Complete
 						</span>
 					</div>
 					<h1 className="text-4xl font-bold bg-gradient-to-r from-red-600 via-rose-600 to-pink-600 bg-clip-text text-transparent">
 						Screening Results
 					</h1>
-					<p className="text-slate-600 max-w-xl mx-auto">
+					<p className="text-muted-foreground max-w-xl mx-auto">
 						Review the automated risk calculation and recommended next steps
 					</p>
 				</div>
 
 				{/* Main Results Card */}
-				<div className="rounded-3xl border border-slate-200 bg-white/80 backdrop-blur-sm p-8 shadow-xl space-y-6">
+				<div className="rounded-3xl border border-border bg-card/80 backdrop-blur-sm p-8 shadow-xl space-y-6">
 					{/* Score Display */}
 					<div className="text-center space-y-4">
 						<div className="flex justify-center">
@@ -106,14 +106,14 @@ function normalizeRisk(value?: string | null) {
 						</div>
 
 						<div>
-							<p className="text-sm font-medium text-slate-600 mb-2">
+							<p className="text-sm font-medium text-muted-foreground mb-2">
 								Total Score
 							</p>
 							<div className="relative inline-block">
 								<span className={`text-6xl font-bold bg-gradient-to-r ${config.gradient} bg-clip-text text-transparent`}>
 									{score}
 								</span>
-								<span className="text-2xl text-slate-400 ml-1">/100</span>
+								<span className="text-2xl text-muted-foreground ml-1">/100</span>
 							</div>
 						</div>
 
@@ -126,18 +126,18 @@ function normalizeRisk(value?: string | null) {
 					</div>
 
 					{/* Divider */}
-					<div className="border-t border-slate-200" />
+					<div className="border-t border-border" />
 
 					{/* Risk Assessment */}
 					{isHighRisk && (
-						<div className="rounded-2xl border border-red-300 bg-red-50 p-5 space-y-2">
+						<div className="rounded-2xl border border-red-300 dark:border-red-800 bg-red-50 dark:bg-red-900/20 p-5 space-y-2">
 							<div className="flex items-center gap-2">
 								<AlertCircle className="w-5 h-5 text-red-600" />
-								<span className="font-semibold text-red-800">
+								<span className="font-semibold text-red-800 dark:text-red-400">
 									Immediate Care Required
 								</span>
 							</div>
-							<p className="text-sm text-red-700">
+							<p className="text-sm text-red-700 dark:text-red-300">
 								High risk of anemia detected. Please consult a healthcare
 								professional or visit a hospital immediately for proper
 								diagnosis and treatment.
@@ -146,14 +146,14 @@ function normalizeRisk(value?: string | null) {
 					)}
 
 					{isMediumRisk && (
-						<div className="rounded-2xl border border-orange-300 bg-orange-50 p-5 space-y-2">
+						<div className="rounded-2xl border border-orange-300 dark:border-orange-800 bg-orange-50 dark:bg-orange-900/20 p-5 space-y-2">
 							<div className="flex items-center gap-2">
 								<AlertTriangle className="w-5 h-5 text-orange-600" />
-								<span className="font-semibold text-orange-800">
+								<span className="font-semibold text-orange-800 dark:text-orange-400">
 									Medical Consultation Recommended
 								</span>
 							</div>
-							<p className="text-sm text-orange-700">
+							<p className="text-sm text-orange-700 dark:text-orange-300">
 								Medium risk detected. Schedule an appointment with a healthcare
 								provider for further evaluation and possible lab tests.
 							</p>
@@ -161,14 +161,14 @@ function normalizeRisk(value?: string | null) {
 					)}
 
 					{isLowRisk && (
-						<div className="rounded-2xl border border-green-300 bg-green-50 p-5 space-y-2">
+						<div className="rounded-2xl border border-green-300 dark:border-green-800 bg-green-50 dark:bg-green-900/20 p-5 space-y-2">
 							<div className="flex items-center gap-2">
 								<CheckCircle2 className="w-5 h-5 text-green-600" />
-								<span className="font-semibold text-green-800">
-									Low Risk of <span className="font-bold">Anemia </span> Detected 
+								<span className="font-semibold text-green-800 dark:text-green-400">
+									Low Risk of <span className="font-bold">Anemia </span> Detected
 								</span>
 							</div>
-							<p className="text-sm text-green-700">
+							<p className="text-sm text-green-700 dark:text-green-300">
 								Current symptoms suggest low risk of anemia. Continue
 								maintaining a healthy diet rich in iron and follow routine
 								health check-ups.
@@ -177,14 +177,14 @@ function normalizeRisk(value?: string | null) {
 					)}
 
 					{/* Next Actions */}
-					<div className="rounded-2xl bg-slate-50 border border-slate-200 p-5 space-y-3">
+					<div className="rounded-2xl bg-muted border border-border p-5 space-y-3">
 						<div className="flex items-center gap-2">
 							<Stethoscope className="w-5 h-5 text-red-600" />
-							<span className="font-semibold text-slate-800">
+							<span className="font-semibold text-foreground">
 								Recommended Next Steps
 							</span>
 						</div>
-						<ul className="space-y-2 text-sm text-slate-700">
+						<ul className="space-y-2 text-sm text-muted-foreground">
 							<li className="flex items-start gap-2">
 								<ArrowRight className="w-4 h-4 mt-0.5 text-red-600 flex-shrink-0" />
 								<span>
@@ -232,7 +232,7 @@ function normalizeRisk(value?: string | null) {
 
 						<button
 							onClick={() => window.print()}
-							className="w-full inline-flex items-center justify-center gap-2 rounded-full border-2 border-red-600 bg-white px-6 py-3.5 text-red-600 font-semibold hover:bg-red-50 transition-all duration-300"
+							className="w-full inline-flex items-center justify-center gap-2 rounded-full border-2 border-red-600 bg-background px-6 py-3.5 text-red-600 font-semibold hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-300"
 						>
 							<FileText className="w-5 h-5" />
 							Print Results
@@ -241,7 +241,7 @@ function normalizeRisk(value?: string | null) {
 				</div>
 
 				{/* Disclaimer */}
-				<p className="text-xs text-center text-slate-500 max-w-2xl mx-auto">
+				<p className="text-xs text-center text-muted-foreground max-w-2xl mx-auto">
 					This is an automated screening tool and not a medical diagnosis.
 					Results should be confirmed by a qualified healthcare professional
 					with appropriate laboratory tests.

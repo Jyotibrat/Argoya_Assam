@@ -41,16 +41,16 @@ type QuestionCardProps = {
 
 function QuestionCard({ title, assamese, icon: Icon, children }: QuestionCardProps) {
   return (
-    <div className="group rounded-2xl border border-slate-200 bg-white p-6 space-y-4 shadow-sm hover:shadow-md transition-all">
+    <div className="group rounded-2xl border border-border bg-card p-6 space-y-4 shadow-sm hover:shadow-md transition-all">
       <div className="flex items-start gap-3">
         {Icon && (
-          <div className="flex-shrink-0 w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center">
+          <div className="flex-shrink-0 w-10 h-10 rounded-full bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center">
             <Icon className="w-5 h-5 text-rose-600" />
           </div>
         )}
         <div className="flex-1">
-          <h3 className="font-semibold text-slate-900 text-lg">{title}</h3>
-          {assamese && <p className="text-sm text-slate-500 mt-1">{assamese}</p>}
+          <h3 className="font-semibold text-foreground text-lg">{title}</h3>
+          {assamese && <p className="text-sm text-muted-foreground mt-1">{assamese}</p>}
         </div>
       </div>
       <div>{children}</div>
@@ -65,9 +65,9 @@ function YesNoToggle({ value, onChange }: { value: boolean; onChange: (val: bool
         type="button"
         onClick={() => onChange(true)}
         className={`flex-1 py-3 px-4 rounded-xl border-2 transition-all duration-200 font-semibold flex items-center justify-center gap-2 ${
-          value === true 
-          ? "border-red-600 bg-red-50 text-red-700 shadow-sm" 
-          : "border-slate-100 bg-white text-slate-500 hover:border-slate-200"
+          value === true
+          ? "border-red-600 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400 shadow-sm"
+          : "border-border bg-card text-muted-foreground hover:border-border/80"
         }`}
       >
         Yes
@@ -76,9 +76,9 @@ function YesNoToggle({ value, onChange }: { value: boolean; onChange: (val: bool
         type="button"
         onClick={() => onChange(false)}
         className={`flex-1 py-3 px-4 rounded-xl border-2 transition-all duration-200 font-semibold flex items-center justify-center gap-2 ${
-          value === false 
-          ? "border-slate-600 bg-slate-100 text-slate-800 shadow-sm" 
-          : "border-slate-100 bg-white text-slate-500 hover:border-slate-200"
+          value === false
+          ? "border-foreground/60 bg-muted text-foreground shadow-sm"
+          : "border-border bg-card text-muted-foreground hover:border-border/80"
         }`}
       >
         No
@@ -130,15 +130,15 @@ export default function ScreenPage(){
     router.push(`/result?score=${result.score}&risk=${result.risk}`);
   };
   return (
-    <main className="min-h-screen bg-slate-50 py-12 px-4">
+    <main className="min-h-screen bg-background py-12 px-4">
         <div className="max-w-2xl mx-auto space-y-8">
             <div className="text-center space-y-3">
-                <div className="inline-flex items-center gap-5 mt-10 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-100">
+                <div className="inline-flex items-center gap-5 mt-10 px-4 py-2 rounded-full bg-card shadow-sm border border-border">
                     <Sparkles className="w-4 h-4 text-rose-500 " />
-                    <span className="text-xs font-bold uppercase tracking-wider  text-slate-600">Health Assessment</span>
+                    <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Health Assessment</span>
                 </div>
-                     <h1 className="text-4xl font-black text-slate-900">Endemic Screening</h1>
-                     <p className="text-slate-500">Provide accurate details for a better risk analysis.</p>
+                     <h1 className="text-4xl font-black text-foreground">Endemic Screening</h1>
+                     <p className="text-muted-foreground">Provide accurate details for a better risk analysis.</p>
             </div>
           
             <QuestionCard title="Age Group" assamese="বয়স গোট" icon={User}>
@@ -148,7 +148,7 @@ export default function ScreenPage(){
                   key={age}
                   onClick={() => setForm({...form, ageGroup: age})}
                   className={`py-3 rounded-xl border-2 capitalize font-medium transition-all ${
-                    form.ageGroup === age ? "border-rose-500 bg-rose-50 text-rose-700" : "border-slate-100 bg-white text-slate-600"
+                    form.ageGroup === age ? "border-rose-500 bg-rose-50 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400" : "border-border bg-card text-muted-foreground"
                   }`}
                 >
                   {age}
@@ -162,9 +162,9 @@ export default function ScreenPage(){
             <input 
               type="range" min="1" max="5" value={form.fatigue} 
               onChange={(e) => setForm({...form, fatigue: parseInt(e.target.value)})}
-              className="w-full h-2 bg-rose-100 rounded-lg appearance-none cursor-pointer accent-rose-600"
+              className="w-full h-2 bg-rose-100 dark:bg-rose-900/30 rounded-lg appearance-none cursor-pointer accent-rose-600"
             />
-            <div className="flex justify-between text-xs font-bold text-slate-400 mt-2">
+            <div className="flex justify-between text-xs font-bold text-muted-foreground mt-2">
               <span>FRESH</span>
               <span className="text-rose-600">LEVEL {form.fatigue}</span>
               <span>EXHAUSTED</span>
@@ -199,7 +199,7 @@ export default function ScreenPage(){
                   key={p}
                   onClick={() => setForm({...form, pallor: p})}
                   className={`flex-1 py-3 rounded-xl border-2 capitalize font-medium transition-all ${
-                    form.pallor === p ? "border-rose-500 bg-rose-50 text-rose-700" : "border-slate-100 bg-white text-slate-600"
+                    form.pallor === p ? "border-rose-500 bg-rose-50 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400" : "border-border bg-card text-muted-foreground"
                   }`}
                 >
                   {p === 'none' ? 'Normal' : p}
@@ -216,7 +216,7 @@ export default function ScreenPage(){
                   key={d}
                   onClick={() => setForm({...form, diet: d})}
                   className={`py-3 rounded-xl border-2 capitalize font-medium transition-all ${
-                    form.diet === d ? "border-rose-500 bg-rose-50 text-rose-700" : "border-slate-100 bg-white text-slate-600"
+                    form.diet === d ? "border-rose-500 bg-rose-50 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400" : "border-border bg-card text-muted-foreground"
                   }`}
                 >
                   {d}
@@ -236,7 +236,7 @@ export default function ScreenPage(){
           </QuestionCard>
         <button
           onClick={submitHandler}
-          className="w-full bg-slate-900 text-white py-5 rounded-2xl font-black text-xl hover:bg-rose-600 transition-all shadow-xl active:scale-95"
+          className="w-full bg-foreground text-background py-5 rounded-2xl font-black text-xl hover:bg-rose-600 hover:text-white transition-all shadow-xl active:scale-95"
         >
           GET RESULTS →
         </button>
