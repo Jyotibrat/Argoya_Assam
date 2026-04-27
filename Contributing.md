@@ -1,4 +1,4 @@
-# 🩺 Contributing to Arogya Assam
+# Contributing to Arogya Assam
 
 First of all, thank you for your interest in contributing to **Arogya Assam**!
 
