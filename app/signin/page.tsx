@@ -75,7 +75,7 @@ export default function SignInPage() {
 
     return (
         <div className="flex items-center justify-center min-h-[calc(100vh-4rem)] bg-muted/40 px-4 py-8">
-            <Card className="w-full max-w-md shadow-xl border-none ring-1 ring-slate-200">
+            <Card className="w-full max-w-md shadow-xl border-none ring-1 ring-border">
                 <CardHeader className="space-y-1">
                     <CardTitle className="text-3xl font-bold text-center tracking-tight">Arogya Assam</CardTitle>
                     <CardDescription className="text-center text-base">
